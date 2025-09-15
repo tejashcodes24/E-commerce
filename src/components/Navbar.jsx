@@ -64,6 +64,22 @@ export default function Navbar() {
               />
             </div>
 
+            {/* Login/Register Buttons - Desktop */}
+            <div className="hidden md:flex items-center gap-3">
+              <Link
+                to="/login"
+                className="px-4 py-2 text-sm font-medium text-amber-700 hover:text-amber-800 transition-colors duration-300"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl hover:from-amber-700 hover:to-orange-700 transition-colors duration-300"
+              >
+                Register
+              </Link>
+            </div>
+
             {/* User Account */}
             <div className="hidden md:block p-2 bg-amber-100 rounded-xl hover:bg-amber-200 transition-colors duration-300 cursor-pointer">
               <User className="w-5 h-5 text-amber-700" />
@@ -131,16 +147,26 @@ export default function Navbar() {
                 About
               </Link>
 
+              {/* Mobile Search */}
+              <div className="flex items-center bg-amber-50 rounded-xl px-3 py-2 mt-2">
+                <Search className="w-4 h-4 text-amber-500 mr-2" />
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  className="bg-transparent text-sm outline-none w-full placeholder-amber-400"
+                />
+              </div>
+
               <div className="flex items-center gap-4 pt-4 border-t border-amber-100">
                 <Link
                   to="/login"
-                  className="flex-1 text-center py-2 text-sm font-medium text-amber-700 bg-amber-100 rounded-xl"
+                  className="flex-1 text-center py-2 text-sm font-medium text-amber-700 bg-amber-100 rounded-xl hover:bg-amber-200 transition-colors duration-300"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="flex-1 text-center py-2 text-sm font-medium text-white bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl"
+                  className="flex-1 text-center py-2 text-sm font-medium text-white bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl hover:from-amber-700 hover:to-orange-700 transition-colors duration-300"
                 >
                   Register
                 </Link>
