@@ -115,7 +115,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/return"
                   className="text-amber-100 hover:text-white transition-colors duration-300"
                 >
                   Returns & Refunds
@@ -123,7 +123,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/shipping"
                   className="text-amber-100 hover:text-white transition-colors duration-300"
                 >
                   Shipping Policy
@@ -131,7 +131,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/privacy"
                   className="text-amber-100 hover:text-white transition-colors duration-300"
                 >
                   Privacy Policy
@@ -139,7 +139,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/terms"
                   className="text-amber-100 hover:text-white transition-colors duration-300"
                 >
                   Terms & Conditions
