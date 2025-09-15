@@ -6,6 +6,8 @@ import {
   Twitter,
   Youtube,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-amber-900 to-orange-900 text-white mt-16">
@@ -51,12 +53,9 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#"
-                  className="text-amber-100 hover:text-white transition-colors duration-300"
-                >
-                  Home
-                </a>
+                <Link to="/" className="text-amber-100 hover:text-white transition-colors duration-300">
+                Home
+                </Link>
               </li>
               <li>
                 <a
@@ -114,36 +113,24 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="/return"
-                  className="text-amber-100 hover:text-white transition-colors duration-300"
-                >
-                  Returns & Refunds
-                </a>
+                <Link to="/return" className="text-amber-100 hover:text-white transition-colors duration-300">
+                  Return & Refund
+                </Link>
               </li>
               <li>
-                <a
-                  href="/shipping"
-                  className="text-amber-100 hover:text-white transition-colors duration-300"
-                >
-                  Shipping Policy
-                </a>
+                <Link to="/shipping" className="text-amber-100 hover:text-white transition-colors duration-300">
+                  Shipping
+                </Link>
               </li>
               <li>
-                <a
-                  href="/privacy"
-                  className="text-amber-100 hover:text-white transition-colors duration-300"
-                >
-                  Privacy Policy
-                </a>
+                <Link to="/privacy" className="text-amber-100 hover:text-white transition-colors duration-300">
+                  Privacy & Policy
+                </Link>
               </li>
               <li>
-                <a
-                  href="/terms"
-                  className="text-amber-100 hover:text-white transition-colors duration-300"
-                >
+                <Link to="/terms" className="text-amber-100 hover:text-white transition-colors duration-300">
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

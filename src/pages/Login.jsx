@@ -10,6 +10,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function LoginComponent() {
   const [showPassword, setShowPassword] = useState(false);
@@ -159,12 +160,7 @@ export default function LoginComponent() {
               {/* Footer */}
               <p className="text-center text-gray-600 text-sm mt-8">
                 Don't have an account?
-                <a
-                  href="/register"
-                  className="text-orange-600 hover:text-orange-700 font-semibold transition-colors ml-1"
-                >
-                  Sign up
-                </a>
+                <Link to="/register" className="text-orange-600 hover:text-orange-700 font-semibold transition-colors ml-1">Sign up</Link>
               </p>
             </div>
           </div>

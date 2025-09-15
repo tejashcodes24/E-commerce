@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, Mail, Lock, User, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function RegisterComponent() {
   const [showPassword, setShowPassword] = useState(false);
@@ -211,19 +212,19 @@ export default function RegisterComponent() {
                   />
                   <label htmlFor="terms" className="text-sm text-gray-600">
                     I agree to the{" "}
-                    <a
-                      href="/terms"
+                    <Link
+                      to="/terms"
                       className="text-orange-600 hover:text-orange-700 font-medium transition-colors underline"
                     >
                       Terms & Conditions
-                    </a>{" "}
+                    </Link>{" "}
                     and{" "}
-                    <a
-                      href="/privacy"
+                    <Link
+                      to="/privacy"
                       className="text-orange-600 hover:text-orange-700 font-medium transition-colors underline"
                     >
                       Privacy Policy
-                    </a>
+                    </Link>
                   </label>
                 </div>
 
@@ -240,12 +241,12 @@ export default function RegisterComponent() {
               {/* Footer */}
               <p className="text-center text-gray-600 text-sm mt-8">
                 Already have an account?
-                <a
-                  href="/login"
+                <Link
+                  to="/login"
                   className="text-orange-600 hover:text-orange-700 font-semibold transition-colors ml-1"
                 >
                   Sign in
-                </a>
+                </Link>
               </p>
             </div>
           </div>
