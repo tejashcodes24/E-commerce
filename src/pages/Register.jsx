@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 export default function RegisterComponent() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [showTermsModal, setShowTermsModal] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [showSuccessNotification, setShowSuccessNotification] = useState(false);
   const [formData, setFormData] = useState({
@@ -31,7 +30,7 @@ export default function RegisterComponent() {
     }
 
     if (!termsAccepted) {
-      setShowTermsModal(true);
+      alert("Please accept the Terms & Conditions and Privacy Policy");
       return;
     }
 
@@ -44,181 +43,29 @@ export default function RegisterComponent() {
     }, 1500);
   };
 
-  const handleAcceptTerms = () => {
-    setTermsAccepted(true);
-    setShowTermsModal(false);
-
-    // After accepting terms, submit the form
-    if (formData.password === formData.confirmPassword) {
-      console.log("Register", formData);
-      setShowSuccessNotification(true);
-
-      setTimeout(() => {
-        setShowSuccessNotification(false);
-        navigate("/login"); // Redirect to login page after successful registration
-      }, 1500);
-    }
-  };
-
   // Success Notification Component
   const SuccessNotification = () => (
     <div
-      className={`fixed top-4 right-4 z-50 transform transition-all duration-500 ease-in-out ${
+      className={`fixed top-6 right-6 z-50 transition-opacity duration-300 ${
         showSuccessNotification
-          ? "translate-x-0 opacity-100"
-          : "translate-x-full opacity-0"
+          ? "opacity-100"
+          : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="bg-green-500 text-white px-6 py-4 rounded-xl shadow-lg flex items-center space-x-3 min-w-80">
-        <CheckCircle className="w-6 h-6 flex-shrink-0" />
-        <div>
-          <p className="font-semibold">Registration Successful!</p>
-          <p className="text-sm text-green-100">Please login to continue</p>
+      <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white px-6 py-5 rounded-2xl shadow-2xl flex items-start space-x-4 min-w-80 border border-gray-700/50 backdrop-blur-sm">
+        <div className="flex-shrink-0">
+          <CheckCircle className="w-7 h-7 text-emerald-400" />
         </div>
-      </div>
-    </div>
-  );
-
-  // Terms and Conditions Modal Component
-  const TermsModal = () => (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4 flex items-center justify-between">
-          <div>
-            <h2 className="text-2xl font-bold text-white">
-              Terms & Conditions
-            </h2>
-            <p className="text-orange-100 text-sm">
-              Please review and accept our terms to continue
-            </p>
-          </div>
-          <CheckCircle className="w-8 h-8 text-orange-100" />
+        <div className="flex-1">
+          <p className="font-semibold text-lg text-white mb-1">
+            Welcome to TechBazaar!
+          </p>
+          <p className="text-sm text-gray-300">
+            Your account has been created successfully
+          </p>
         </div>
-
-        {/* Content */}
-        <div className="p-6 overflow-y-auto max-h-96">
-          <div className="space-y-6 text-gray-700">
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
-              <h3 className="font-semibold text-orange-800 mb-2 flex items-center">
-                <CheckCircle className="w-5 h-5 mr-2" />
-                Important Notice
-              </h3>
-              <p className="text-sm text-orange-700">
-                By using TechBazaar, you agree to comply with and be bound by
-                the following terms and conditions, which incorporate laws from
-                India (Digital Personal Data Protection Act 2023, IT Act 2000),
-                EU (GDPR), and USA data protection regulations.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">
-                1. Acceptance of Terms
-              </h4>
-              <p className="text-sm mb-3">
-                By accessing and using TechBazaar, you accept and agree to be
-                bound by the terms and provision of this agreement. These terms
-                comply with the Digital Personal Data Protection Act, 2023
-                (India), IT Act 2000, GDPR (EU), and applicable US federal laws.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">
-                2. Data Protection & Privacy
-              </h4>
-              <p className="text-sm mb-3">
-                We process your personal data in accordance with:
-              </p>
-              <ul className="text-sm space-y-1 ml-4 list-disc text-gray-600">
-                <li>Digital Personal Data Protection Act, 2023 (India)</li>
-                <li>General Data Protection Regulation (GDPR) for EU users</li>
-                <li>California Consumer Privacy Act (CCPA) for US users</li>
-                <li>IT Act 2000 and Information Technology Rules</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">
-                3. User Rights
-              </h4>
-              <p className="text-sm mb-2">You have the right to:</p>
-              <ul className="text-sm space-y-1 ml-4 list-disc text-gray-600">
-                <li>Access your personal data</li>
-                <li>Correct inaccurate data</li>
-                <li>Request deletion of your data</li>
-                <li>Data portability (where applicable)</li>
-                <li>Withdraw consent at any time</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">
-                4. Prohibited Activities
-              </h4>
-              <p className="text-sm mb-2">You agree not to:</p>
-              <ul className="text-sm space-y-1 ml-4 list-disc text-gray-600">
-                <li>Violate any applicable laws or regulations</li>
-                <li>Infringe on intellectual property rights</li>
-                <li>Engage in fraudulent activities</li>
-                <li>Distribute harmful or malicious content</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">
-                5. Governing Law
-              </h4>
-              <p className="text-sm">
-                These terms are governed by the laws of India, with additional
-                protections under GDPR for EU users and applicable US state and
-                federal laws for US users.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <p className="text-sm text-gray-600">
-                <strong>Contact Information:</strong> For any questions
-                regarding these terms or your data rights, contact us at
-                legal@techbazaar.com or through our Data Protection Officer.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="bg-gray-50 px-6 py-4 border-t border-gray-200">
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
-            <div className="flex items-center space-x-4 text-sm">
-              <a
-                href="#"
-                className="text-orange-600 hover:text-orange-700 flex items-center"
-              >
-                View Full Terms & Conditions
-              </a>
-              <a
-                href="#"
-                className="text-orange-600 hover:text-orange-700 flex items-center"
-              >
-                Privacy Policy
-              </a>
-            </div>
-            <div className="flex space-x-3">
-              <button
-                onClick={() => setShowTermsModal(false)}
-                className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleAcceptTerms}
-                className="px-6 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all shadow-md"
-              >
-                Accept & Continue
-              </button>
-            </div>
-          </div>
+        <div className="absolute top-3 right-3">
+          <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
         </div>
       </div>
     </div>
@@ -364,21 +211,19 @@ export default function RegisterComponent() {
                   />
                   <label htmlFor="terms" className="text-sm text-gray-600">
                     I agree to the{" "}
-                    <button
-                      type="button"
-                      onClick={() => setShowTermsModal(true)}
+                    <a
+                      href="/terms"
                       className="text-orange-600 hover:text-orange-700 font-medium transition-colors underline"
                     >
                       Terms & Conditions
-                    </button>{" "}
+                    </a>{" "}
                     and{" "}
-                    <button
-                      type="button"
-                      onClick={() => setShowTermsModal(true)}
+                    <a
+                      href="/privacy"
                       className="text-orange-600 hover:text-orange-700 font-medium transition-colors underline"
                     >
                       Privacy Policy
-                    </button>
+                    </a>
                   </label>
                 </div>
 
@@ -407,7 +252,7 @@ export default function RegisterComponent() {
                   <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                     <path
                       fill="#EA4335"
-                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v极2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v极2.77h极3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                     />
                     <path
                       fill="#34A853"
@@ -419,7 +264,7 @@ export default function RegisterComponent() {
                     />
                     <path
                       fill="#EA4335"
-                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-极3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53极z"
                     />
                   </svg>
                   <span className="text-gray-700 font-medium">Google</span>
@@ -429,7 +274,7 @@ export default function RegisterComponent() {
                   <svg
                     className="w-5 h-5 mr-2"
                     fill="#1877F2"
-                    viewBox="0 0 24 24"
+                    viewBox="极0 0 24 24"
                   >
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c极0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                   </svg>
@@ -451,7 +296,7 @@ export default function RegisterComponent() {
           </div>
 
           {/* Bottom decoration */}
-          <div className="text-center mt-8">
+          <div className="text-center mt极8">
             <div className="flex justify-center space-x-2">
               <div className="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></div>
               <div
@@ -469,9 +314,6 @@ export default function RegisterComponent() {
 
       {/* Success Notification */}
       <SuccessNotification />
-
-      {/* Terms Modal */}
-      {showTermsModal && <TermsModal />}
     </>
   );
 }

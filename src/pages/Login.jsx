@@ -34,23 +34,27 @@ export default function LoginComponent() {
   // Success Notification Component
   const SuccessNotification = () => (
     <div
-      className={`fixed top-4 right-4 z-50 transform transition-all duration-500 ease-in-out ${
+      className={`fixed top-6 right-6 z-50 transition-opacity duration-300 ${
         showSuccessNotification
-          ? "translate-x-0 opacity-100"
-          : "translate-x-full opacity-0"
+          ? "opacity-100"
+          : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-4 rounded-md shadow-2xl flex items-center gap-3 min-w-80 border border-white/20">
-        <div className="bg-white/20 p-2 rounded-full">
-          <CheckCircle className="w-6 h-6 flex-shrink-0 text-white" />
+      <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white px-6 py-5 rounded-2xl shadow-2xl flex items-start space-x-4 min-w-80 border border-gray-700/50 backdrop-blur-sm">
+        <div className="flex-shrink-0">
+          <CheckCircle className="w-7 h-7 text-emerald-400" />
         </div>
-        <div>
-          <p className="font-semibold text-base tracking-wide">
+        <div className="flex-1">
+          <p className="font-semibold text-lg text-white mb-1">
             Login Successful!
           </p>
-          <p className="text-sm text-emerald-50">
-            Welcome back to <span className="font-medium">TechBazaar</span>
+          <p className="text-sm text-gray-300">
+            Welcome back to{" "}
+            <span className="font-medium text-emerald-400">TechBazaar</span>
           </p>
+        </div>
+        <div className="absolute top-3 right-3">
+          <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
         </div>
       </div>
     </div>
