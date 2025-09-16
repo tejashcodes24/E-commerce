@@ -160,23 +160,13 @@ export default function LoginComponent() {
               {/* Footer */}
               <p className="text-center text-gray-600 text-sm mt-8">
                 Don't have an account?
-                <Link to="/register" className="text-orange-600 hover:text-orange-700 font-semibold transition-colors ml-1">Sign up</Link>
+                <Link
+                  to="/register"
+                  className="text-orange-600 hover:text-orange-700 font-semibold transition-colors ml-1"
+                >
+                  Sign up
+                </Link>
               </p>
-            </div>
-          </div>
-
-          {/* Bottom decoration */}
-          <div className="text-center mt-8">
-            <div className="flex justify-center space-x-2">
-              <div className="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></div>
-              <div
-                className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"
-                style={{ animationDelay: "0.2s" }}
-              ></div>
-              <div
-                className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"
-                style={{ animationDelay: "0.4s" }}
-              ></div>
             </div>
           </div>
         </div>

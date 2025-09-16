@@ -250,21 +250,6 @@ export default function RegisterComponent() {
               </p>
             </div>
           </div>
-
-          {/* Bottom decoration */}
-          <div className="text-center mt极8">
-            <div className="flex justify-center space-x-2">
-              <div className="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></div>
-              <div
-                className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"
-                style={{ animationDelay: "0.2s" }}
-              ></div>
-              <div
-                className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"
-                style={{ animationDelay: "0.4s" }}
-              ></div>
-            </div>
-          </div>
         </div>
       </div>
 
